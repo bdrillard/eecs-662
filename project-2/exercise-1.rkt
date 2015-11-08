@@ -40,7 +40,7 @@
     (type-case CFAE e
       (num (n) (num n))
       (op (p) (cadr (assoc p op-list)))
-      (binop (p l r) (reify-cfae (interp-cfae p ds) (interp-cfae r ds) (interp-cfae l ds)))
+      (binop (p l r) (reify-cfae (interp-cfae p ds) (interp-cfae l ds) (interp-cfae r ds)))
       (id (i) (lookup i ds))
       (fun (i e) (fun i e))
       (app (f e) (let ((fun-val (interp-cfae f ds)))
